@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Request REST API
         run: |
-          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
-            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
+          curl -X GET "${{ secrets.MI_SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.MI_SUPA_AUTO }}" \
+            -H "Authorization: Bearer ${{ secrets.MI_SUPA_AUTO }}"
