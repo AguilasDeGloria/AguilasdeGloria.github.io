@@ -2,18 +2,15 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    # Se ejecuta a las 12:00 UTC los Domingos (0), Miércoles (3) y Viernes (5)
     - cron: '0 12 * * 0,3,5'
-  # Permite ejecutar la tarea manualmente desde la pestaña Actions
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   ping-db:
     runs-on: ubuntu-latest
-
     steps:
       - name: Send request to Supabase REST API
         run: |
-          curl -X GET "${{ secrets.mi_supabase_URL }}/rest/v1/" \
-            -H "apikey: ${{ secrets.mi_supabase_auto }}" \
-            -H "Authorization: Bearer ${{ secrets.mi_supabase_auto }}"
+          curl -X GET "${{ secrets.MI_SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.MI_SUPABASE_AUTO }}" \
+            -H "Authorization: Bearer ${{ secrets.MI_SUPABASE_AUTO }}"
