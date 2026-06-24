@@ -1,8 +1,10 @@
+
+
 name: Supabase Ping
 
 on:
   schedule:
-    - cron: '0 12 * * 0,3,5'
+    - cron: '0 12 * * 0,1,3,5'  # Añadimos el 1 (Lunes) para recortar ventanas largas
   workflow_dispatch:
 
 jobs:
@@ -14,3 +16,5 @@ jobs:
           curl -X GET "${{ secrets.MI_SUPABASE_URL }}/rest/v1/roles?limit=1" \
             -H "apikey: ${{ secrets.MI_SUPA_AUTO }}" \
             -H "Authorization: Bearer ${{ secrets.MI_SUPA_AUTO }}"
+
+            
